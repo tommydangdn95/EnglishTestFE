@@ -1,0 +1,13 @@
+progress[value] {
+  width: 250px;
+  height: 20px;
+}
+
+.word {
+  text-align: center;
+}
+
+.btn-click {
+  margin-right: 10px;
+  margin-left: 10px;
+}
