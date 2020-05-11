@@ -14,7 +14,7 @@ export class WordService {
   constructor(private http: HttpClient) {
   }
 
-  getRandWord(): Observable<string> {
-    return this.http.get(this.url + '/api/word', {responseType: 'text'});
+  getRandWord(): Observable<any> {
+    return this.http.get<any>(this.url + '/api/word');
   }
 }

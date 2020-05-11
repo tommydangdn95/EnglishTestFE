@@ -8,7 +8,7 @@ import {WordService} from './word.service';
 })
 export class AppComponent implements OnInit{
   word: any;
-  sStatus = 'Inactive';
+  sStatus = 'Cancel';
   iProgressMax = 100;
   iProgressValue = 0;
   cancel = false;
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit{
     this.sStatus = 'Inactive';
     this.cancel = true;
     this.iProgressValue = 0;
-    this.word = 'Ready?';
+    this.word = 'Stopping...';
   }
 
   async Run() {
@@ -47,11 +47,18 @@ export class AppComponent implements OnInit{
       console.log(this.iProgressValue);
     }
     this.sStatus = 'Complete';
+    this.word = 'Ready?';
+    this.resetState();
   }
 
   wait(ms: number)  {
     return new Promise((resolve) => {
       setTimeout(resolve, ms);
     });
+  }
+
+  resetState() {
+    this.iProgressValue = 0;
+    this.cancel = false;
   }
 }
