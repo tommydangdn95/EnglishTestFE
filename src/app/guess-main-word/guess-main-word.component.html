@@ -1,0 +1,18 @@
+<div class="container">
+  <br><br>
+  <form [formGroup]="formcheckSynonym" (ngSubmit)="checkAnswer()">
+    <div class="word">
+      <h1 class="word-main">{{word}}</h1>
+      <div class="form-group">
+        <label for="synonymWord"></label>
+        <input type="text" class="form-control" formControlName="synonymWord" placeholder="Enter Synonym Word" id="synonymWord">
+      </div>
+      <button type="submit" (keyup.enter)="checkAnswer()" class="btn btn-primary btn-click">Check Answer</button>
+      <button type="button" class="btn btn-primary btn-click" (click)="nextWord()">Next -></button>
+    </div>
+  </form>
+  <div class="word">
+    <h1 class="word-main" *ngIf="checkWord" [class.text-success]="statusCheck" [class.text-danger]="!statusCheck">{{checkWord}}</h1>
+  </div>
+</div>
+

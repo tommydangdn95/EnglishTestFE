@@ -6,10 +6,16 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgProgressModule} from 'ngx-progressbar';
 import {max} from 'rxjs/operators';
 import {WordService} from './word.service';
+import {ReactiveFormsModule} from '@angular/forms';
+import { GuessmainwordComponent } from './guessmainword/guessmainword.component';
+import { AppRoutingModule } from './app-routing.module';
+import { GuessMainWordComponent } from './guess-main-word/guess-main-word.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GuessmainwordComponent,
+    GuessMainWordComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +25,9 @@ import {WordService} from './word.service';
       min: 0,
       max: 10000,
       thick: true,
-    })
+    }),
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [WordService],
   bootstrap: [AppComponent]

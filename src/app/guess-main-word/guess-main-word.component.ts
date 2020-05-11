@@ -1,14 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {WordService} from './word.service';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {ValidateFn} from 'codelyzer/walkerFactory/walkerFn';
+import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {WordService} from '../word.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-guess-main-word',
+  templateUrl: './guess-main-word.component.html',
+  styleUrls: ['./guess-main-word.component.css']
 })
-export class AppComponent implements OnInit{
+export class GuessMainWordComponent implements OnInit {
   word: string;
   statusCheck = false;
   checkWord = '';
@@ -55,4 +54,5 @@ export class AppComponent implements OnInit{
     this.formcheckSynonym.reset();
     this.getWord();
   }
+
 }

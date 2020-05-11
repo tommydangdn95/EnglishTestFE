@@ -1,19 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import {WordService} from './word.service';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {ValidateFn} from 'codelyzer/walkerFactory/walkerFn';
+import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {WordService} from '../word.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-guessmainword',
+  templateUrl: './guessmainword.component.html',
+  styleUrls: ['./guessmainword.component.css']
 })
-export class AppComponent implements OnInit{
+export class GuessmainwordComponent implements OnInit {
   word: string;
   statusCheck = false;
   checkWord = '';
   synonymWord = '';
-  public formcheckSynonym: FormGroup;
+  public formcheckMainWord: FormGroup;
   constructor(private wordService: WordService, private formBuilder: FormBuilder) {
   }
 
@@ -33,14 +32,14 @@ export class AppComponent implements OnInit{
   }
 
   initLoginForm() {
-    this.formcheckSynonym = this.formBuilder.group({
-      synonymWord: ['', Validators.required]
+    this.formcheckMainWord = this.formBuilder.group({
+      mainWord: ['', Validators.required]
     });
   }
 
-  checkAnswer() {
-    const result: any = Object.assign({}, this.formcheckSynonym.value);
-    if (result.synonymWord.toLowerCase() === this.synonymWord.toLowerCase()){
+  checkAnswerMainWord() {
+    const result: any = Object.assign({}, this.formcheckMainWord.value);
+    if (result.mainWord.toLowerCase() === this.word.toLowerCase()){
       this.checkWord = 'Correct';
       this.statusCheck = true;
     }
@@ -52,7 +51,8 @@ export class AppComponent implements OnInit{
 
   nextWord() {
     this.checkWord = '';
-    this.formcheckSynonym.reset();
+    this.formcheckMainWord.reset();
     this.getWord();
   }
+
 }
