@@ -2,10 +2,10 @@
   <br><br>
   <form [formGroup]="formcheckMainWord" (ngSubmit)="checkAnswerMainWord()">
     <div class="word">
-      <h1 class="word-main">{{synonymWord}}</h1>
+      <h1 class="word-main">{{synonym}}</h1>
       <div class="form-group">
-        <label for="mainWord"></label>
-        <input type="text" class="form-control" formControlName="mainWord" placeholder="Enter Word" id="mainWord">
+        <label for="word"></label>
+        <input type="text" class="form-control" formControlName="word" placeholder="Enter Word" id="word">
       </div>
       <button type="submit" (keyup.enter)="checkAnswerMainWord()" class="btn btn-primary btn-click">Check Answer</button>
       <button type="button" class="btn btn-primary btn-click" (click)="nextWord()">Next -></button>

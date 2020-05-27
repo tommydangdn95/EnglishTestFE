@@ -9,13 +9,13 @@ import {WordService} from './word.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import { GuessmainwordComponent } from './guessmainword/guessmainword.component';
 import { AppRoutingModule } from './app-routing.module';
-import { GuessMainWordComponent } from './guess-main-word/guess-main-word.component';
+import { GuesssynonymwordComponent } from './guesssynonymword/guesssynonymword.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GuessmainwordComponent,
-    GuessMainWordComponent
+    GuesssynonymwordComponent
   ],
   imports: [
     BrowserModule,

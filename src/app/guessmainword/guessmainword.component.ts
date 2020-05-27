@@ -11,7 +11,7 @@ export class GuessmainwordComponent implements OnInit {
   word: string;
   statusCheck = false;
   checkWord = '';
-  synonymWord = '';
+  synonym = '';
   public formcheckMainWord: FormGroup;
   constructor(private wordService: WordService, private formBuilder: FormBuilder) {
   }
@@ -23,8 +23,13 @@ export class GuessmainwordComponent implements OnInit {
 
   getWord() {
     this.wordService.getRandWord().subscribe(data => {
-      this.word = data.mainWord;
-      this.synonymWord = data.synonymWord;
+      this.word = data.name;
+      if (data.synonym) {
+        this.synonym = data.synonym;
+      }
+      else{
+        this.synonym = data.mean;
+      }
       console.log(data);
     }, error => {
       console.log(error);
@@ -33,13 +38,13 @@ export class GuessmainwordComponent implements OnInit {
 
   initLoginForm() {
     this.formcheckMainWord = this.formBuilder.group({
-      mainWord: ['', Validators.required]
+      word: ['', Validators.required]
     });
   }
 
   checkAnswerMainWord() {
     const result: any = Object.assign({}, this.formcheckMainWord.value);
-    if (result.mainWord.toLowerCase() === this.word.toLowerCase()){
+    if (result.word.toLowerCase() === this.word.toLowerCase()){
       this.checkWord = 'Correct';
       this.statusCheck = true;
     }

@@ -16,6 +16,6 @@ export class WordService {
   }
 
   getRandWord(): Observable<Words> {
-    return this.http.get<Words>(this.url + '/api/word');
+    return this.http.get<Words>(this.url + '/api/lesson');
   }
 }

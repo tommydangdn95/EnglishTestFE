@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GuessMainWordComponent } from './guess-main-word.component';
+import { GuesssynonymwordComponent } from './guesssynonymword.component';
 
-describe('GuessMainWordComponent', () => {
-  let component: GuessMainWordComponent;
-  let fixture: ComponentFixture<GuessMainWordComponent>;
+describe('GuesssynonymwordComponent', () => {
+  let component: GuesssynonymwordComponent;
+  let fixture: ComponentFixture<GuesssynonymwordComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GuessMainWordComponent ]
+      declarations: [ GuesssynonymwordComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GuessMainWordComponent);
+    fixture = TestBed.createComponent(GuesssynonymwordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

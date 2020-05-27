@@ -1,4 +1,5 @@
 export interface Words {
-  mainWord: string;
-  synonymWord: string;
+  name: string;
+  synonym: string;
+  mean: string;
 }

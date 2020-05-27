@@ -3,15 +3,15 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {WordService} from '../word.service';
 
 @Component({
-  selector: 'app-guess-main-word',
-  templateUrl: './guess-main-word.component.html',
-  styleUrls: ['./guess-main-word.component.css']
+  selector: 'app-guesssynonymword',
+  templateUrl: './guesssynonymword.component.html',
+  styleUrls: ['./guesssynonymword.component.css']
 })
-export class GuessMainWordComponent implements OnInit {
+export class GuesssynonymwordComponent implements OnInit {
   word: string;
   statusCheck = false;
   checkWord = '';
-  synonymWord = '';
+  synonym = '';
   public formcheckSynonym: FormGroup;
   constructor(private wordService: WordService, private formBuilder: FormBuilder) {
   }
@@ -23,8 +23,13 @@ export class GuessMainWordComponent implements OnInit {
 
   getWord() {
     this.wordService.getRandWord().subscribe(data => {
-      this.word = data.mainWord;
-      this.synonymWord = data.synonymWord;
+      this.word = data.name;
+      if (data.synonym) {
+        this.synonym = data.synonym;
+      }
+      else{
+        this.synonym = data.mean;
+      }
       console.log(data);
     }, error => {
       console.log(error);
@@ -33,13 +38,13 @@ export class GuessMainWordComponent implements OnInit {
 
   initLoginForm() {
     this.formcheckSynonym = this.formBuilder.group({
-      synonymWord: ['', Validators.required]
+      synonym: ['', Validators.required]
     });
   }
 
   checkAnswer() {
     const result: any = Object.assign({}, this.formcheckSynonym.value);
-    if (result.synonymWord.toLowerCase() === this.synonymWord.toLowerCase()){
+    if (result.synonym.toLowerCase() === this.synonym.toLowerCase()){
       this.checkWord = 'Correct';
       this.statusCheck = true;
     }
