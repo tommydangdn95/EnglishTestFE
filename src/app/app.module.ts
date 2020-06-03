@@ -10,12 +10,14 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { GuessmainwordComponent } from './guessmainword/guessmainword.component';
 import { AppRoutingModule } from './app-routing.module';
 import { GuesssynonymwordComponent } from './guesssynonymword/guesssynonymword.component';
+import { LessonsComponent } from './lessons/lessons.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GuessmainwordComponent,
-    GuesssynonymwordComponent
+    GuesssynonymwordComponent,
+    LessonsComponent
   ],
   imports: [
     BrowserModule,

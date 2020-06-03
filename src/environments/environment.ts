@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  BASE_URL: 'http://api.micaenglish.xyz'
+  BASE_URL: 'http://api.micaenglish.xyz',
+  LOCAL_URL: 'http://localhost:5000'
 };
 
 /*
